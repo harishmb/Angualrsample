@@ -1,0 +1,38 @@
+<h2>Calling getCourses() service for courses values</h2>
+
+<ul>
+    <li *ngIf="courses.length>0">
+        <ul *ngFor="let course of courses">{{course}}</ul>
+    </li>
+    <li *ngIf="courses.length==0">
+        <ul>No Course available</ul>
+    </li>
+    
+</ul>
+<div><img src="{{imageUrl}}"/></div>
+<button style="width:200px;height: 100px;" class="btn"  on-click="onClick()" class.active="isActive" 
+[style.backgroundColor]="isActive ? 'red' : 'blue'"></button>
+
+<button style="width:200px;height: 100px;" class="btn" on-click="onClick($event)">SUBMIT</button>
+
+<div>
+   <ul class="nav nav-pills">
+        <li [class.active]="viewMode=='map'"><a (click)="viewMode='map'">MAP</a></li>
+        <li [class.active]="viewMode=='list'"><a (click)="viewMode='list'">LIST</a></li>
+   </ul>
+   <div [ngSwitch]="viewMode">
+       <!-- <template *ngSwitchCase="'map'"> -->
+        <div class="container">  
+            <div class="row" *ngSwitchCase="'map'">
+                    <div class="col-xs-9 col-md-7" style="background-color:yellow;height: 300px;">MAP VIEW</div>
+                  </div>
+       <!-- </template> -->
+       <!-- <template *ngSwitchCase="'list'"> -->
+            <div class="row" *ngSwitchCase="'list'">
+                    <div class="col-xs-9 col-md-7" style="background-color:yellowgreen;height: 300px;">LIST VIEW</div>
+                  </div>
+       <!-- </template> -->
+    </div> 
+   </div>
+</div>
+
